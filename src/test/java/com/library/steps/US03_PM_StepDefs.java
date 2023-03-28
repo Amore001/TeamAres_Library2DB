@@ -16,23 +16,23 @@ public class US03_PM_StepDefs {
     List<String> actualCategoryList;
 
 
-    @Given("the {string} on the home page")
-    public void the_on_the_home_page(String user) {
+    @Given("the {string} on the home page PM")
+    public void the_on_the_home_page_PM(String user) {
         loginPage.login(user);
         BrowserUtil.waitFor(2);
     }
-    @When("the user navigates to {string} page")
-    public void the_user_navigates_to_page(String moduleName) {
+    @When("the user navigates to {string} page PM")
+    public void the_user_navigates_to_page_PM(String moduleName) {
         new BookPage().navigateModule(moduleName);
     }
 
-    @When("the user clicks book categories")
-    public void the_user_clicks_book_categories() {
+    @When("the user clicks book categories PM")
+    public void the_user_clicks_book_categories_PM() {
         bookPage.mainCategoryElement.click();
     }
 
-    @Then("verify book categories must match book_categories table from db")
-    public void verify_book_categories_must_match_book_categories_table_from_db() {
+    @Then("verify book categories must match book_categories table from db PM")
+    public void verify_book_categories_must_match_book_categories_table_from_db_PM() {
         //first step: create a query String to store our sql query
         String query = "SELECT name from book_categories";
         // 2 - run query to get data from db
