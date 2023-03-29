@@ -42,7 +42,7 @@ public class US03_PM_StepDefs {
 
         //4 - Get my ActualCategoryList
         actualCategoryList = BrowserUtil.getAllSelectOptions(bookPage.mainCategoryElement);
-        //                                  method              WE element
+
         actualCategoryList.remove(0);
         //delete first option >>> ALL <<< so, the assert will match
 
