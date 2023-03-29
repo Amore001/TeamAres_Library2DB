@@ -26,3 +26,6 @@ inner join books b on book_borrow.book_id = b.id
 inner join book_categories bc on b.book_category_id = bc.id
 group by name
 order by 2 desc;
+
+-- US7
+
