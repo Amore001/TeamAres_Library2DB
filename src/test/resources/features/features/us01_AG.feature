@@ -1,6 +1,7 @@
+@www
 Feature: As a data consumer, I want the user information are stored in mySql DB correctly in users table.
   Background:
-    Given Establish the database connection AG
+    Given establish the database connection AG
   @us01 @db
   Scenario: verify users has unique IDs
     When Execute query to get all IDs from users AG
