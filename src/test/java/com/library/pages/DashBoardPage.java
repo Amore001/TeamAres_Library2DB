@@ -31,4 +31,5 @@ public class DashBoardPage extends BasePage
         return elementOfModule.getText();
     }
 
+
 }
