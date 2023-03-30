@@ -14,8 +14,6 @@ public class US01_AG_StepDefs {
     @Given("establish the database connection AG")
     public void establishTheDatabaseConnectionAG() {
 
-        // Make conn with database
-        // DB_Util.createConnection();
         System.out.println("**********************************************");
         System.out.println("*** CONNECTION WILL BE DONE WITH HOOK CLASS***");
         System.out.println("**********************************************");
@@ -40,11 +38,10 @@ public class US01_AG_StepDefs {
         String expectedUserCount = DB_Util.getFirstRowFirstColumn();
         System.out.println("expectedUserCount = " + expectedUserCount);
 
-        // MAKE ASSERTIONS
+
         Assert.assertEquals(expectedUserCount, actualUserCount);
 
-        //CLOSE CONN
-        // DB_Util.destroy();
+
         System.out.println("**********************************************");
         System.out.println("*** DESTROY  WILL BE DONE WITH HOOK CLASS***");
         System.out.println("**********************************************");
@@ -54,7 +51,7 @@ public class US01_AG_StepDefs {
 
     List<String> actualList;
 
-    // US01-2
+
 
     @When("Execute query to get all columns AG")
     public void executeQueryToGetAllColumnsAG() {
@@ -66,15 +63,13 @@ public class US01_AG_StepDefs {
     }
 
 
-
     @Then("verify the below columns are listed in result AG")
-    public void verifyTheBelowColumnsAreListedInResultAG(List<String> expectedList)
-    {
+    public void verifyTheBelowColumnsAreListedInResultAG(List<String> expectedList) {
 
         System.out.println("expectedList = " + expectedList);
-        // Assertions
+
         Assert.assertEquals(expectedList, actualList);
 
-    }
 
+    }
 }
