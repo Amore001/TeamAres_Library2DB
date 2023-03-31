@@ -6,6 +6,11 @@ select count(id) from users; --
 select count(distinct id) from users;
 -- 1855
 
+SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'users';
+
+
+
+
 
 -- RESULT --> MANUALLY IT IS PASSED
 
