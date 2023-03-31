@@ -11,6 +11,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Wait;
 
@@ -26,7 +27,6 @@ public class US07_AS_StepDefs {
     List<String> borrowedBooks = new ArrayList<>();
 
 
-
     String book_Name = "";
 
 
@@ -36,12 +36,14 @@ public class US07_AS_StepDefs {
         loginPage.login(string);
 
     }
+
     @Given("the user navigates to {string} page AS")
     public void the_user_navigates_to_page_as(String string) {
 
         bookPage.navigateModule(string);
         BrowserUtil.waitFor(2);
     }
+
     @Given("the user searches for {string} book AS")
     public void the_user_searches_for_book_as(String name) {
         book_Name = name;
@@ -50,6 +52,7 @@ public class US07_AS_StepDefs {
         bookPage.search.sendKeys(name);
         BrowserUtil.waitFor(2);
     }
+
     @When("the user clicks Borrow Book AS")
     public void the_user_clicks_borrow_book_as() {
 
@@ -62,6 +65,7 @@ public class US07_AS_StepDefs {
         Assert.assertTrue(bookPage.toastMessage.isDisplayed());
 
     }
+
     @Then("verify that book is shown in {string} page AS")
     public void verify_that_book_is_shown_in_page_as(String string) {
 
@@ -85,9 +89,8 @@ public class US07_AS_StepDefs {
         Assert.assertTrue(UIlistOFBookNames.contains(book_Name));
 
 
-
-
     }
+
     @Then("verify logged student has same book in database AS")
     public void verify_logged_student_has_same_book_in_database_as() {
 
@@ -98,7 +101,7 @@ public class US07_AS_StepDefs {
                 "order by 3 desc");
 
 
-       // String lastAddedBookNameInDB = DB_Util.getCellValue(1, 2);
+        // String lastAddedBookNameInDB = DB_Util.getCellValue(1, 2);
 
         List<String> BookNamesInDB = DB_Util.getColumnDataAsList(2);
         System.out.println(BookNamesInDB);
@@ -109,17 +112,36 @@ public class US07_AS_StepDefs {
         //use below code to return the book so you can retest it. Not stable test!!!!
         //you need to retrun the book back so above steps can work and click button, borrowbook.
 
+        List<WebElement> borrowedBooks = Driver.getDriver().findElements(By.xpath("//td[2]"));
+
+        List<WebElement> returnBookElements = Driver.getDriver().findElements(By.xpath("//td[1]/a"));
+
+        for (int i = 0; i < borrowedBooks.size(); i++) {
+            if (borrowedBooks.get(i).getText().equals(book_Name)) {
+                try {
+                    returnBookElements.get(i).click();
+                } catch (ElementClickInterceptedException e) {
+
+                }
+            }
+
+        }
         Driver.getDriver().navigate().refresh();
 
-        String locatorToReturnBook = "(//td[2][.='Self Confident for AS'])[8]/../td/a";
+/*
+
+        Driver.getDriver().navigate().refresh();
+
+        String locatorToReturnBook = "(//td[2][.='Self Confident for AS'])[9]/../td/a";
         WebElement ReturnBook = Driver.getDriver().findElement(By.xpath(locatorToReturnBook));
 
         ReturnBook.click();
 
 
+ */
 
 
-
+        //(//td[2][.='Self Confident for AS'])/../td/a
 
 
     }
