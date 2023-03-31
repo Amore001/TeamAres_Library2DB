@@ -26,8 +26,8 @@ public class US02_AH_StepDefs {
     @When("the librarian gets borrowed books number AHU")
     public void the_librarian_gets_borrowed_books_number_ahu() {
         dashBoardPage = new DashBoardPage();
+       //BrowserUtil.waitForVisibility(dashBoardPage.usersNumber, 2) ;
         actualBorrowedBookNumber = dashBoardPage.borrowedBooksNumber.getText();
-
 
 
     }
