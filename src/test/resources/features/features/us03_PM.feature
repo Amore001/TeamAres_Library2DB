@@ -1,5 +1,8 @@
-
+@B28G7-273
 Feature: As a data consumer, I want UI and DB book categories are match.
+
+
+@db @ui @B28G7-277
 
   Scenario: verify book categories with DB
     Given the "librarian" on the home page PM
