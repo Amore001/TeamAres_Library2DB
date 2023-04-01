@@ -27,8 +27,8 @@ public class US01_AJ_StepDefs{
 
 
     }
-    @Then("verify all users has unique ID AG")
-    public void verify_all_users_has_unique_id_ag() {
+    @Then("verify all users has unique ID AJ")
+    public void verify_all_users_has_unique_id_aj() {
 
         String query = "select count(distinct id) from users";
         DB_Util.runQuery(query);

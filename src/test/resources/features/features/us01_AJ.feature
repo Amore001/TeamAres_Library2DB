@@ -2,12 +2,12 @@
 Feature: Default
 
 
-  @B28G7-288
+  @B28G7-288 @db
   Scenario: US01 TC01 verify users has unique IDs and users table columns
     Given Establish the database connection AJ
   Scenario: verify users has unique IDs
     When Execute query to get all IDs from users AJ
-    Then verify all users has unique ID AG
+    Then verify all users has unique ID AJ
 
 
   Scenario: verify users table columns
