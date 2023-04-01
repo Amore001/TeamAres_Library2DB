@@ -1,6 +1,8 @@
 package com.library.pages;
 
+import com.library.utility.BrowserUtil;
 import com.library.utility.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -44,11 +46,10 @@ public class BookPage extends BasePage {
     public WebElement categoryDropdown;
 
 
-
     @FindBy(id = "description")
     public WebElement description;
 
-    @FindBy(xpath="//span[text()='Books']")
+    @FindBy(xpath = "//span[text()='Books']")
     public WebElement bookButton;
 
     public WebElement editBook(String book) {
@@ -60,7 +61,5 @@ public class BookPage extends BasePage {
         String xpath = "//td[3][.='" + book + "']/../td/a";
         return Driver.getDriver().findElement(By.xpath(xpath));
     }
-
-
 
 }
