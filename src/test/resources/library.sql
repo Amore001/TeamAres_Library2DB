@@ -6,6 +6,11 @@ select count(id) from users; --
 select count(distinct id) from users;
 -- 1855
 
+SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'users';
+
+
+
+
 
 -- RESULT --> MANUALLY IT IS PASSED
 
@@ -19,8 +24,13 @@ select * from users;
 select count(*) from book_borrow
 where is_returned=0;
 
--- US5
 
+--US04
+select b.name,b.author, b.isbn, b.year, b.description from books b inner join
+book_categories bc on b.book_category_id = bc.id
+                where b.name = 'Fireflies & Family Ties (South Carolina Sunsets Book 3)';
+
+--US05
 select bc.name, count(*) from book_borrow
 inner join books b on book_borrow.book_id = b.id
 inner join book_categories bc on b.book_category_id = bc.id
@@ -37,6 +47,7 @@ inner join book_borrow bb on u.id = bb.user_id
 inner join books b on bb.book_id = b.id
 where full_name='Test Student 5'
 order by 3 desc;
+
 
 
 

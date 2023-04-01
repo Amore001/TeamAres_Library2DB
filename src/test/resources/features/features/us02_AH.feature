@@ -1,7 +1,7 @@
 Feature: Default
 
 
-  @B28G7-290
+  @B28G7-290  @db
   Scenario: US02AC01TC01_AH_Verify librarian can see borrowed books number
     Given the "librarian" on the home page AHU
     When the librarian gets borrowed books number AHU
