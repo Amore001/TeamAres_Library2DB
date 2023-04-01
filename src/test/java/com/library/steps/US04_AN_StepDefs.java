@@ -75,8 +75,7 @@ public class US04_AN_StepDefs {
         System.out.println("rowDataAsList = " + expectedBookInfo);
 
         Assert.assertEquals(actualBookInfo, expectedBookInfo);
-
-
+        
     }
 
 }
