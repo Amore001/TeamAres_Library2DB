@@ -1,7 +1,7 @@
+Feature: Default
 
-Feature: As a data consumer, I want UI and DB book information are match.
- @db
-  Scenario: Verify book information with DB
+  @B28G7-297 @db
+  Scenario: US04 Test case01
     Given the "librarian" on the home page AN
     And the user navigates to "Books" page AN
     When the user searches for "Fireflies & Family Ties (South Carolina Sunsets Book 3)" book AN
